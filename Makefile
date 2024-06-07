@@ -22,13 +22,13 @@ setup-dev:
 	pre-commit install
 
 build-docker:
-	docker build -t gpt-code-review-action .
+	docker build -t gemini-code-review-action .
 
 
 lint:
 
 lint-python:
-	pylint --rcfile=.pylintrc gpt_code_review_action
+	pylint --rcfile=.pylintrc gemini_code_review_action
 
 lint-docker:
 	hadolint Dockerfile

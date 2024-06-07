@@ -35,31 +35,31 @@ inputs:
     required: true
     default: "${{ github.event.pull_request.head.sha }}"
   model:
-    description: "GPT model"
+    description: "Gemini model"
     required: true
     default: "text-davinci-003"
   extra_prompt:
-    description: "Extra prompt for GPT"
+    description: "Extra prompt for Gemini"
     required: false
     default: ""
   temperature:
-    description: "Temperature for GPT"
+    description: "Temperature for Gemini"
     required: false
     default: "0.7"
   max_tokens:
-    description: "Max tokens for GPT"
+    description: "Max tokens for Gemini"
     required: false
     default: "256"
   top_p:
-    description: "Top p for GPT"
+    description: "Top p for Gemini"
     required: false
     default: "1"
   frequency_penalty:
-    description: "Frequency penalty for GPT"
+    description: "Frequency penalty for Gemini"
     required: false
     default: "0.0"
   presence_penalty:
-    description: "Presence penalty for GPT"
+    description: "Presence penalty for Gemini"
     required: false
     default: "0.0"
   pull_request_diff:
@@ -77,10 +77,10 @@ inputs:
 outputs:
   entire_prompt_body:
     description: "Entire prompt body"
-    value: ${{ steps.gpt.outputs.entire_prompt_body }}
+    value: ${{ steps.gemini.outputs.entire_prompt_body }}
   review_result:
     description: "Review result"
-    value: ${{ steps.gpt.outputs.review_result }}
+    value: ${{ steps.gemini.outputs.review_result }}
 
 branding:
   icon: "code"

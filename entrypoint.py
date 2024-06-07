@@ -158,7 +158,7 @@ def format_review_comment(summarized_review: str, chunked_reviews: List[str]) ->
 @click.command()
 @click.option("--diff", type=click.STRING, required=True, help="Pull request diff")
 @click.option("--diff-chunk-size", type=click.INT, required=False, default=3500, help="Pull request diff")
-@click.option("--model", type=click.STRING, required=False, default="gpt-3.5-turbo", help="Model")
+@click.option("--model", type=click.STRING, required=False, default="gemini-3.5-turbo", help="Model")
 @click.option("--extra-prompt", type=click.STRING, required=False, default="", help="Extra prompt")
 @click.option("--temperature", type=click.FLOAT, required=False, default=0.1, help="Temperature")
 @click.option("--max-tokens", type=click.INT, required=False, default=512, help="Max tokens")
