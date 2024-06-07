@@ -27,8 +27,8 @@ We can tune the chunk size based on the model we use.
 ## Example usage
 Here is an example to use the Action to review a pull request of the repository.
 The actual file is located at [`.github/workflows/ai-code-review.yml`](.github/workflows/ai-code-review.yml).
-We set `extra_prompt` to `Sempre responda em português brasileiro!`.
-We aim to make GPT review a pull request from a point of view of a Python developer.
+We set `extra_prompt` to `Reviwe the code in English`.
+We aim to make Gemini AI review a pull request from a point of view of a Python developer.
 
 As a result of an execution of the Action, the Action posts a review comment to the pull request like the following image.
 ![An example comment of the code review](./docs/images/example.png)
@@ -77,6 +77,6 @@ jobs:
             ${{ steps.get_diff.outputs.pull_request_diff }}
           pull_request_chunk_size: "3500"
           extra_prompt: |-
-            Sempre responda em português brasileiro!
+            Reviwe the code in English!
           log_level: "DEBUG"
 ```
