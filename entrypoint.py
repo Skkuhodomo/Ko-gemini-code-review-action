@@ -36,12 +36,20 @@ def check_required_env_vars():
 def get_review_prompt(extra_prompt: str = "") -> str:
     """Get a prompt template"""
     template = f"""
-    This is a pull request or part of a pull request if the pull request is very large.
-    Suppose you review this PR as an excellent software engineer and an excellent security engineer.
-    Can you tell me the issues with differences in a pull request and provide suggestions to improve it?
-    You can provide a review summary and issue comments per file if any major issues are found.
-    Always include the name of the file that is citing the improvement or problem.
-    In the next messages I will be sending you the difference between the GitHub file codes, okay?
+    You are an excellent software engineer and security expert tasked with reviewing a pull request (PR) or part of a large PR.
+    
+    Please thoroughly review the differences in the provided PR and identify any issues. Your review should include:
+    1. A review summary highlighting the overall quality and main concerns.
+    2. Specific comments on issues or improvements needed, organized by file.
+    
+    For each identified issue or suggestion, include:
+    - The name of the file.
+    - A clear description of the problem or suggestion.
+    - Recommendations for improvement.
+
+    If relevant, prioritize security concerns and best coding practices in your review.
+
+    In subsequent messages, you will receive the differences between the GitHub file codes for review. Ready?
     """
     return template
 
