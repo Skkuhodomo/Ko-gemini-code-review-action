@@ -41,5 +41,5 @@ jobs:
             ${{ steps.get_diff.outputs.pull_request_diff }}
           pull_request_chunk_size: "3500"
           extra_prompt: |-
-            Sempre responda em português brasileiro!
+            Reviwe the code in English
           log_level: "DEBUG"
