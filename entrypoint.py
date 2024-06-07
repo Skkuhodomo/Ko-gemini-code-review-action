@@ -23,7 +23,7 @@ def check_required_env_vars():
     """Check required environment variables"""
     required_env_vars = [
         "GEMINI_API_KEY",
-        "ACESS_TOKEN",
+        "GITHUB_TOKEN",
         "GITHUB_REPOSITORY",
         "GITHUB_PULL_REQUEST_NUMBER",
         "GIT_COMMIT_HASH",
