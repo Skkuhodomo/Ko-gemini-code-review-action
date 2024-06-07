@@ -23,7 +23,7 @@ def check_required_env_vars():
     """Check required environment variables"""
     required_env_vars = [
         "GEMINI_API_KEY",
-        "GITHUB_TOKEN",
+        "ACESS_TOKEN",
         "GITHUB_REPOSITORY",
         "GITHUB_PULL_REQUEST_NUMBER",
         "GIT_COMMIT_HASH",
@@ -55,13 +55,18 @@ def get_review_prompt(extra_prompt: str = "") -> str:
 
 
 def get_summarize_prompt() -> str:
-    """Get a prompt template"""
+    """Get a prompt template for summarizing a pull request."""
     template = """
-    Can you summarize this for me?
-    It would be good to stick to highlighting pressing issues and providing code suggestions to improve the pull request.
-    Here's what you need to summarize:
+    Please provide a summary of the following pull request (PR).
+
+    Focus on:
+    1. Highlighting pressing issues.
+    2. Providing specific code suggestions to improve the PR.
+
+    Here's the content you need to summarize:
     """
     return template
+
 
 
 def create_a_comment_to_pull_request(
