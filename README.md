@@ -12,20 +12,31 @@ Gemini API를 사용하기 위해 GitHub Actions 비밀 GEMINI_API_KEY를 설정
 
 깃허브 액션에 직접 추가
 
-gemini_api_key: Gemini API에 접근하기 위한 Gemini API 키 (API 키 받기).
+`gemini_api_key`: Gemini API에 접근하기 위한 Gemini API 키 (API 키 받기).
 자동으로 추가되는 값
 
-github_token: GitHub API에 접근하기 위한 GitHub 토큰 (이 토큰을 생성할 필요는 없습니다!).
-github_repository: 리뷰 댓글을 게시할 GitHub 리포지토리.
-github_pull_request_number: 리뷰 댓글을 게시할 GitHub 풀 리퀘스트 번호.
-git_commit_hash: 리뷰 댓글을 게시할 git 커밋 해시.
-pull_request_diff: 리뷰 댓글을 생성하기 위한 풀 리퀘스트의 diff.
-pull_request_diff_chunk_size: 리뷰 댓글을 생성하기 위한 풀 리퀘스트 diff의 청크 크기.
-extra_prompt: 리뷰 댓글을 생성하기 위한 추가 프롬프트.
-model: 리뷰 댓글을 생성하기 위한 모델. 사용 가능한 모델을 사용할 수 있습니다.
-log_level: 로그를 출력할 로그 레벨.
+`github_token` : GitHub API에 접근하기 위한 GitHub 토큰 (이 토큰을 생성할 필요는 없습니다!).
+
+`github_repository`: 리뷰 댓글을 게시할 GitHub 리포지토리.
+
+`github_pull_request_number`: 리뷰 댓글을 게시할 GitHub 풀 리퀘스트 번호.
+
+`git_commit_hash`: 리뷰 댓글을 게시할 git 커밋 해시.
+
+`pull_request_diff`: 리뷰 댓글을 생성하기 위한 풀 리퀘스트의 diff.
+
+`pull_request_diff_chunk_size`: 리뷰 댓글을 생성하기 위한 풀 리퀘스트 diff의 청크 크기.
+
+`extra_prompt`: 리뷰 댓글을 생성하기 위한 추가 프롬프트.
+
+`model: 리뷰 댓글을 생성하기 위한 모델. 사용 가능한 모델을 사용할 수 있습니다.
+
+`log_level`: 로그를 출력할 로그 레벨.
+
 Gemini 모델은 최대 입력 토큰 수에 제한이 있다는 것을 알고 있을 것입니다.
+
 따라서 diff의 크기가 제한을 초과할 경우, 풀 리퀘스트의 diff를 여러 청크로 분할해야 합니다.
+
 사용하는 모델에 따라 청크 크기를 조정할 수 있습니다.
 
 ## 사용 예시
