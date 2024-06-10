@@ -1,36 +1,40 @@
-# gemini-code-review-action
-A container GitHub Action to review a pull request by Gemini AI.
+## gemini-code-review-action
 
-If the size of a pull request is over the maximum chunk size of the Gemini API, the Action will split the pull request into multiple chunks and generate review comments for each chunk.
-And then the Action summarizes the review comments and posts a review comment to the pull request.
+Gemini AI로 풀 리퀘스트를 리뷰하는 컨테이너 GitHub Action.
 
-## Pre-requisites
-We have to set a GitHub Actions secret `GEMINI_API_KEY` to use the Gemini API so that we securely pass it to the Action.
+Pull requests(이하 PR)의 크기가 Gemini API의 최대 청크 크기를 초과할 경우, 이 Action은 PR를 여러 청크로 분할하여 각 청크에 대한 리뷰 댓글을 생성합니다. 그런 다음 Action은 리뷰 댓글을 요약하여 PR에 리뷰 댓글로 게시합니다.
 
-## Inputs
+## 사전 요구 사항
 
-- `gemini_api_key`: The Gemini API key to access the Gemini API [(GET MY API KEY)](https://makersuite.google.com/app/apikey).
-- `github_token`: The GitHub token to access the GitHub API (You do not need to generate this Token!).
-- `github_repository`: The GitHub repository to post a review comment.
-- `github_pull_request_number`: The GitHub pull request number to post a review comment.
-- `git_commit_hash`: The git commit hash to post a review comment.
-- `pull_request_diff`: The diff of the pull request to generate a review comment.
-- `pull_request_diff_chunk_size`: The chunk size of the diff of the pull request to generate a review comment.
-- `extra_prompt`: The extra prompt to generate a review comment.
-- `model`: The model to generate a review comment. We can use a model which is available.
-- `log_level`: The log level to print logs.
+Gemini API를 사용하기 위해 GitHub Actions 비밀 GEMINI_API_KEY를 설정하여 Action에 안전하게 전달해야 합니다.
 
-As you might know, a model of Gemini has limitation of the maximum number of input tokens.
-So we have to split the diff of a pull request into multiple chunks, if the size of the diff is over the limitation.
-We can tune the chunk size based on the model we use.
+## 입력 값
 
-## Example usage
-Here is an example to use the Action to review a pull request of the repository.
-The actual file is located at [`.github/workflows/ai-code-review.yml`](.github/workflows/ai-code-review.yml).
-We set `extra_prompt` to `Reviwe the code in English`.
-We aim to make Gemini AI review a pull request from a point of view of a Python developer.
+깃허브 액션에 직접 추가
 
-As a result of an execution of the Action, the Action posts a review comment to the pull request like the following image.
+gemini_api_key: Gemini API에 접근하기 위한 Gemini API 키 (API 키 받기).
+자동으로 추가되는 값
+
+github_token: GitHub API에 접근하기 위한 GitHub 토큰 (이 토큰을 생성할 필요는 없습니다!).
+github_repository: 리뷰 댓글을 게시할 GitHub 리포지토리.
+github_pull_request_number: 리뷰 댓글을 게시할 GitHub 풀 리퀘스트 번호.
+git_commit_hash: 리뷰 댓글을 게시할 git 커밋 해시.
+pull_request_diff: 리뷰 댓글을 생성하기 위한 풀 리퀘스트의 diff.
+pull_request_diff_chunk_size: 리뷰 댓글을 생성하기 위한 풀 리퀘스트 diff의 청크 크기.
+extra_prompt: 리뷰 댓글을 생성하기 위한 추가 프롬프트.
+model: 리뷰 댓글을 생성하기 위한 모델. 사용 가능한 모델을 사용할 수 있습니다.
+log_level: 로그를 출력할 로그 레벨.
+Gemini 모델은 최대 입력 토큰 수에 제한이 있다는 것을 알고 있을 것입니다.
+따라서 diff의 크기가 제한을 초과할 경우, 풀 리퀘스트의 diff를 여러 청크로 분할해야 합니다.
+사용하는 모델에 따라 청크 크기를 조정할 수 있습니다.
+
+## 사용 예시
+
+리포지토리의 PR를 리뷰하기 위해 Action을 사용하는 예시는 다음과 같습니다.
+실제 파일은 .github/workflows/ai-code-review.yml에 위치해 있습니다.
+우리는 Python 개발자의 관점에서 Gemini AI가 풀 리퀘스트를 리뷰하도록 목표합니다.
+
+Action 실행 결과, Action은 다음 이미지와 같이 PR에 리뷰 댓글을 게시합니다.
 ![An example comment of the code review](./docs/img/example.png)
 
 ```yaml
@@ -77,6 +81,6 @@ jobs:
             ${{ steps.get_diff.outputs.pull_request_diff }}
           pull_request_chunk_size: "3500"
           extra_prompt: |-
-            Reviwe the code in English!
+            Reviwe the code in Korean.
           log_level: "DEBUG"
 ```
