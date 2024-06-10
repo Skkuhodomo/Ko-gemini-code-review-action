@@ -1,4 +1,4 @@
-## gemini-code-review-action
+## Ko-gemini-code-review-action
 
 Gemini AI로 풀 리퀘스트를 리뷰하는 컨테이너 GitHub Action.
 
