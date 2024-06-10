@@ -31,7 +31,7 @@ We set `extra_prompt` to `Reviwe the code in English`.
 We aim to make Gemini AI review a pull request from a point of view of a Python developer.
 
 As a result of an execution of the Action, the Action posts a review comment to the pull request like the following image.
-![An example comment of the code review](./docs/images/example.png)
+![An example comment of the code review](./docs/img/example.png)
 
 ```yaml
 name: "Code Review by Gemini AI"
