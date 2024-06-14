@@ -13,7 +13,11 @@ Gemini API를 사용하기 위해 GitHub Actions 비밀 GEMINI_API_KEY를 설정
 깃허브 액션에 직접 추가
 
 `gemini_api_key`: Gemini API에 접근하기 위한 Gemini API 키 (API 키 받기).
-자동으로 추가되는 값
+
+
+----
+
+직접 추가할 필요 없음 
 
 `github_token` : GitHub API에 접근하기 위한 GitHub 토큰 (이 토큰을 생성할 필요는 없습니다!).
 
